@@ -7,6 +7,12 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 3
+    # Major bumps of vendored actions break CI (e.g. actions/setup-python v7 /
+    # actions/checkout v7 do not exist). Only ever take minor/patch updates;
+    # review major upgrades by hand.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   # Python packaging metadata (pyproject.toml).
   # mnemodex has zero runtime dependencies, but keep dependabot watching so
