@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a bug in mnemodex so we can fix it
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is, and what you expected to happen.
+      placeholder: |
+        Running `mnemodex index` on a large repository fails with ... instead of ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: To reproduce
+      description: Minimal, self-contained steps to trigger the bug.
+      placeholder: |
+        1. `mnemodex init` in a fresh repository
+        2. `mnemodex index`
+        3. Observe ...
+      value: |
+        ```
+        # your reproduction here
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-vs-actual
+    attributes:
+      label: Expected vs actual
+      description: What did you expect to happen, and what actually happened? Paste error output if any.
+      placeholder: |
+        Expected: ...
+        Actual: ...
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, and mnemodex version. Run `mnemodex version` to get these.
+      placeholder: "e.g. macOS 14.5, Python 3.12.4, mnemodex 0.1.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Does `mnemodex doctor` change the picture?
+      description: Paste the output of `mnemodex doctor` and note whether running it fixed or changed the failure.
+      placeholder: "Paste `mnemodex doctor` output here, and what changed after running it."
+    validations:
+      required: false

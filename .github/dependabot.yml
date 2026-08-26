@@ -1,0 +1,18 @@
+# Keep CI actions and packaging metadata up to date.
+version: 2
+updates:
+  # GitHub Actions used in .github/workflows/*.yml.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+
+  # Python packaging metadata (pyproject.toml).
+  # mnemodex has zero runtime dependencies, but keep dependabot watching so
+  # build/classifier metadata stays current.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3

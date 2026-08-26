@@ -1,0 +1,28 @@
+---
+description: Consult and maintain repository memory via mnemodex
+globs: "**/*"
+---
+
+# mnemodex (Cursor rules)
+
+When working in this repository:
+
+1. **Before editing unfamiliar code**, run in the integrated terminal:
+   ```bash
+   mnemodex ask "<what you're about to touch>"
+   ```
+   It returns a budgeted context pack: relevant memory, symbol definitions,
+   and impacted files.
+
+2. **When you discover something non-obvious**, persist it so future
+   sessions (and teammates) inherit it:
+   ```bash
+   mnemodex add "<fact>" --kind decision|gotcha|tip|api|convention --tags <tags>
+   ```
+
+3. **Resolve symbols**: `mnemodex symbol <name>` → defining file + signature.
+
+4. If the store does not exist yet: `mnemodex init && mnemodex index`.
+
+The store lives in `.mnemodex/` (git-ignored). It is offline, zero-dependency,
+and deterministic — the same query returns the same results everywhere.

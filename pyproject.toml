@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mnemodex"
+version = "0.1.0"
+description = "The memory index for AI coding agents. Zero dependencies. Your repo, remembered."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Mnemodex Contributors" }]
+keywords = [
+    "ai-agent", "mcp", "agent-memory", "codebase-intelligence",
+    "claude-code", "cursor", "codex", "knowledge-graph", "local-first",
+    "zero-dependency",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Build Tools",
+]
+
+[project.urls]
+Homepage = "https://github.com/mnemodex/mnemodex"
+Repository = "https://github.com/mnemodex/mnemodex"
+Documentation = "https://github.com/mnemodex/mnemodex/blob/main/docs/CLI.md"
+Issues = "https://github.com/mnemodex/mnemodex/issues"
+
+[project.scripts]
+mnemodex = "mnemodex.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.4"]
+
+[tool.setuptools]
+packages = ["mnemodex", "mnemodex.webui", "mnemodex.skills"]
+
+[tool.setuptools.package-data]
+"mnemodex.webui" = ["*.html"]
+"mnemodex.skills" = ["*.md", "*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100

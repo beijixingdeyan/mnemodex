@@ -1,0 +1,38 @@
+#!/bin/sh
+# -----------------------------------------------------------------------------
+# mnemodex -- the memory index for AI coding agents.
+#
+# Launcher for running mnemodex straight from a repository checkout, with no
+# installation step. The install.sh installer and `bin/`-on-PATH setups both
+# use it. Works when invoked directly or via `sh bin/mnemodex`.
+#
+#   sh bin/mnemodex --version
+#   sh bin/mnemodex init
+#
+# It resolves a Python 3.9+ interpreter and prepends the repository root to
+# PYTHONPATH so `python -m mnemodex` finds the package either way.
+# -----------------------------------------------------------------------------
+
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd "$(dirname "$0")" && pwd)
+REPO_ROOT=$(dirname "${SCRIPT_DIR}")
+
+PY=""
+for candidate in python3 python py; do
+    if command -v "${candidate}" >/dev/null 2>&1 &&
+        "${candidate}" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 9) else 1)' >/dev/null 2>&1; then
+        PY="${candidate}"
+        break
+    fi
+done
+
+if [ -z "${PY}" ]; then
+    echo "mnemodex: Python 3.9 or newer is required but was not found in PATH." >&2
+    exit 1
+fi
+
+PYTHONPATH="${REPO_ROOT}${PYTHONPATH:+:${PYTHONPATH}}"
+export PYTHONPATH
+
+exec "${PY}" -m mnemodex "$@"

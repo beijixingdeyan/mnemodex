@@ -1,0 +1,46 @@
+name: Feature request
+description: Propose an enhancement for mnemodex
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem or gap are you trying to solve? Context matters more than a solution sketch here.
+      placeholder: |
+        When I work across many repositories, mnemodex forgets context between sessions because ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed behavior
+      description: Describe the behavior you would like to see, including any CLI flags, commands, or MCP tools involved.
+      placeholder: |
+        Add a `mnemodex workspace` command that ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What else did you try, and why did those approaches fall short?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Impact
+      description: Which areas of mnemodex does this touch? Select all that apply.
+      options:
+        - label: Codebase intelligence (indexing, search, symbols, knowledge graph)
+        - label: Agent skills (MCP server, tool integrations, exports)
+        - label: Memory (store, recall, TTL, dedupe, garbage collection)
+        - label: Performance (speed, memory footprint, large-repo scalability)
+        - label: Docs (README, CLI reference, contributing guides)
+    validations:
+      required: false

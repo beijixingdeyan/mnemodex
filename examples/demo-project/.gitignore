@@ -1,0 +1,9 @@
+# mnemodex artifacts
+.mnemodex/
+
+# language / build noise
+node_modules/
+*.log
+__pycache__/
+target/
+dist/

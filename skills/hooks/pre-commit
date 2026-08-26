@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+# mnemodex pre-commit hook — memory hygiene + freshness before every commit.
+# Install:  cp skills/hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+set -eu
+
+if ! command -v mnemodex >/dev/null 2>&1; then
+  # fall back to a checkout-relative launcher
+  if [ -x "$(dirname "$0")/../../bin/mnemodex" ]; then
+    MNEMODEX="$(dirname "$0")/../../bin/mnemodex"
+  else
+    echo "mnemodex: not installed, skipping pre-commit check"
+    exit 0
+  fi
+else
+  MNEMODEX=mnemodex
+fi
+
+if [ -d .mnemodex ]; then
+  "$MNEMODEX" gc --quiet 2>/dev/null || "$MNEMODEX" gc >/dev/null 2>&1 || true
+  # Uncomment the next line to block commits while the index is stale:
+  # "$MNEMODEX" doctor >/dev/null 2>&1 || { echo "index stale — run: mnemodex index"; exit 1; }
+fi
+exit 0
