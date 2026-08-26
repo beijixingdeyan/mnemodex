@@ -1,19 +1,10 @@
-<p align="center">
-  <img src="docs/demo.gif" alt="mnemodex in action: init, index, remember, ask" width="820">
-</p>
+![mnemodex in action: init, index, remember, ask](docs/demo.gif)
 
-<p align="center">
-  <b>The memory index for AI coding agents</b><br>
-  <i>One binary-free command. Zero dependencies. Your whole repo, queryable in seconds.</i>
-</p>
+# The memory index for AI coding agents
 
-<p align="center">
-  <a href="#zero-dependencies"><img alt="deps: 0" src="https://img.shields.io/badge/dependencies-0-brightgreen"></a>
-  <a href="LICENSE"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue"></a>
-  <a href="https://www.python.org/downloads/"><img alt="python 3.9+" src="https://img.shields.io/badge/python-3.9%2B-3670A0"></a>
-  <a href=".github/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/mnemodex/mnemodex/ci.yml?branch=main"></a>
-  <a href="ROADMAP.md"><img alt="status: active" src="https://img.shields.io/badge/status-active-2ea44f"></a>
-</p>
+**One binary-free command. Zero dependencies. Your whole repo, queryable in seconds.**
+
+Badges: [![deps: 0](https://img.shields.io/badge/dependencies-0-brightgreen)](#zero-dependencies) · [![license MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE) · [![python 3.9+](https://img.shields.io/badge/python-3.9%2B-3670A0)](https://www.python.org/downloads/) · [![CI](https://img.shields.io/github/actions/workflow/status/mnemodex/mnemodex/ci.yml?branch=main)](.github/workflows/ci.yml) · [![status: active](https://img.shields.io/badge/status-active-2ea44f)](ROADMAP.md)
 
 ---
 
