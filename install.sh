@@ -1,9 +1,9 @@
-#!/bin/sh
+﻿#!/bin/sh
 # ---------------------------------------------------------------------------
 # mnemodex installer -- the memory index for AI coding agents.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/mnemodex/mnemodex/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/beijixingdeyan/mnemodex/main/install.sh | sh
 #
 # Installs mnemodex into $HOME/.local/share/mnemodex (via git clone, or the
 # repository tarball) and writes a launcher to $HOME/.local/bin/mnemodex.
@@ -14,7 +14,7 @@
 if (set -o pipefail) 2>/dev/null; then set -euo pipefail; else set -eu; fi
 : "${HOME:?The HOME environment variable must be set}"
 
-REPO="mnemodex/mnemodex"
+REPO="beijixingdeyan/mnemodex"
 BRANCH="main"
 BASE_URL="https://github.com/${REPO}"
 TARBALL_URL="${BASE_URL}/archive/refs/heads/${BRANCH}.tar.gz"

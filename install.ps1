@@ -1,4 +1,4 @@
-#requires -Version 5.1
+﻿#requires -Version 5.1
 <#
 .SYNOPSIS
     Installs mnemodex -- the memory index for AI coding agents.
@@ -9,7 +9,7 @@
     $env:LOCALAPPDATA\mnemodex\bin\mnemodex.ps1.
 
     Usage:
-        Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/mnemodex/mnemodex/main/install.ps1 -OutFile install.ps1
+        Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/beijixingdeyan/mnemodex/main/install.ps1 -OutFile install.ps1
         powershell -ExecutionPolicy Bypass -File install.ps1
 
     Requires Python 3.9 or newer. Only paths under $env:LOCALAPPDATA are
@@ -23,7 +23,7 @@ $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'  # much faster Invoke-WebRequest
 
 # --- configuration ------------------------------------------------------------
-$Repo    = 'mnemodex/mnemodex'
+$Repo    = 'beijixingdeyan/mnemodex'
 $Branch  = 'main'
 $BaseUrl = "https://github.com/$Repo"
 $ZipUrl  = "$BaseUrl/archive/refs/heads/$Branch.zip"

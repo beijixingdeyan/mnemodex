@@ -1,10 +1,10 @@
-![mnemodex in action: init, index, remember, ask](docs/demo.gif)
+﻿![mnemodex in action: init, index, remember, ask](docs/demo.gif)
 
 # The memory index for AI coding agents
 
 **One binary-free command. Zero dependencies. Your whole repo, queryable in seconds.**
 
-Badges: [![deps: 0](https://img.shields.io/badge/dependencies-0-brightgreen)](#zero-dependencies) · [![license MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE) · [![python 3.9+](https://img.shields.io/badge/python-3.9%2B-3670A0)](https://www.python.org/downloads/) · [![CI](https://img.shields.io/github/actions/workflow/status/mnemodex/mnemodex/ci.yml?branch=main)](.github/workflows/ci.yml) · [![status: active](https://img.shields.io/badge/status-active-2ea44f)](ROADMAP.md)
+Badges: [![deps: 0](https://img.shields.io/badge/dependencies-0-brightgreen)](#zero-dependencies) · [![license MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE) · [![python 3.9+](https://img.shields.io/badge/python-3.9%2B-3670A0)](https://www.python.org/downloads/) · [![CI](https://img.shields.io/github/actions/workflow/status/beijixingdeyan/mnemodex/ci.yml?branch=main)](.github/workflows/ci.yml) · [![status: active](https://img.shields.io/badge/status-active-2ea44f)](ROADMAP.md)
 
 ---
 
@@ -39,13 +39,13 @@ No package manager, no `pip install`, no Node, no Docker **required** — just P
 
 ```sh
 # one-liner (POSIX shell)
-curl -fsSL https://raw.githubusercontent.com/mnemodex/mnemodex/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/beijixingdeyan/mnemodex/main/install.sh | sh
 
 # or PowerShell:
-irm https://raw.githubusercontent.com/mnemodex/mnemodex/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/beijixingdeyan/mnemodex/main/install.ps1 | iex
 
 # or the most boring way: clone and run
-git clone https://github.com/mnemodex/mnemodex
+git clone https://github.com/beijixingdeyan/mnemodex
 cd mnemodex && ./bin/mnemodex --help
 ```
 

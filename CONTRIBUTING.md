@@ -1,4 +1,4 @@
-# Contributing to mnemodex
+﻿# Contributing to mnemodex
 
 First off — thank you for considering a contribution. mnemodex is built for
 AI coding agents, and it is only as good as the community that shapes it.
@@ -12,7 +12,7 @@ preference.
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/mnemodex/mnemodex
+   git clone https://github.com/beijixingdeyan/mnemodex
    cd mnemodex
    ```
 
