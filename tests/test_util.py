@@ -40,7 +40,13 @@ class FingerprintTest(unittest.TestCase):
 
 class RepoRelativeTest(unittest.TestCase):
     def test_basic(self):
+        self.assertEqual(util.repo_relative("/repo/src/a.py", "/repo"), "src/a.py")
+        self.assertEqual(util.repo_relative("/repo/a.py", "/repo"), "a.py")
+
+    @unittest.skipUnless(os.name == "nt", "drive-letter paths only exist on Windows")
+    def test_windows_drive_paths(self):
         self.assertEqual(util.repo_relative(r"E:\x\src\a.py", r"E:\x"), "src/a.py")
+        self.assertEqual(util.repo_relative(r"E:\x\a.py", r"E:\x"), "a.py")
 
     def test_safe_join_rejects_traversal(self):
         with self.assertRaises(ValueError):
