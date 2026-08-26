@@ -65,11 +65,12 @@ The demo is a scripted session: a list of commands, each with output lines.
   blink frames on the full command, then it scrolls into the history.
 - **Snapshot rendering** — every frame is a snapshot of the session state:
   the header bar, the visible window of completed lines, and the in-progress
-  command line.
-- **Snapshot diffing** — between consecutive frames **only the rows that
-  changed are re-rendered**: the growing command line, the blinking cursor,
-  or a newly appended output line. Prior state is carried forward, keeping
-  re-renders cheap at any resolution.
+  command line; `snapshot()` clears and redraws the full canvas.
+- **Frame distance** — the *visual* difference between consecutive frames is
+  confined to a few rows (the growing command line, the blinking cursor, a
+  newly appended output line) because each snapshot only mutates that state;
+  with disposal `2` (restore-to-background) the GIF stores those small deltas,
+  keeping the file small at any resolution.
 - **Output lines** — appended one per frame; `--frames` can end the
   animation early, after which the final state is held.
 
