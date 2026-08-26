@@ -31,10 +31,26 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          cache: pip
 
       - name: Run test suite
-        run: python -m unittest discover -s tests -v
+        shell: bash
+        run: |
+          set +e
+          python -m unittest discover -s tests -v > test-output.log 2>&1
+          rc=$?
+          # keep diagnostics: first lines (import/fatal errors) and the tail
+          # (failing assertions) so we can debug without run-log access
+          head -n 40 test-output.log > diagnostics.log
+          tail -n 120 test-output.log >> diagnostics.log
+          exit $rc
+
+      - name: Upload diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-diagnostics-${{ matrix.os }}-${{ matrix.python-version }}
+          path: diagnostics.log
+          if-no-files-found: ignore
 
   # Smoke test: the CLI must run and the self-contained GIF generator must
   # produce a real file. Runs once, on Ubuntu, after the matrix passes.
@@ -51,7 +67,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
 
       - name: Version banner
         run: python -m mnemodex --version
