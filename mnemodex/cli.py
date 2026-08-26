@@ -159,7 +159,8 @@ def _build_parser() -> argparse.ArgumentParser:
     p.set_defaults(fn=cmd_gif)
 
     p = sub.add_parser("completion", help="print a shell completion script")
-    p.add_argument("--shell", choices=["bash", "zsh", "fish", "powershell"], default="bash")
+    p.add_argument("shell", nargs="?", default=None, help="bash|zsh|fish|powershell (default bash)")
+    p.add_argument("--shell", dest="shell_flag", choices=["bash", "zsh", "fish", "powershell"], default=None)
     p.set_defaults(fn=cmd_completion)
 
     p = sub.add_parser("version", help="print version and environment info")
@@ -677,7 +678,8 @@ def cmd_gif(args, log) -> int:
 
 
 def cmd_completion(args, log) -> int:
-    script = COMPLETIONS.get(args.shell, "")
+    shell = args.shell or args.shell_flag or "bash"
+    script = COMPLETIONS.get(shell, "")
     print(script)
     return 0
 
