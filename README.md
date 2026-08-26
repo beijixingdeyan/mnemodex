@@ -44,7 +44,7 @@ And it plugs into your tools the way you already work: a **zero-config MCP serve
 
 ## Install
 
-No package manager, no `pip install`, no Node, no Docker. Just Python 3.9+:
+No package manager, no `pip install`, no Node, no Docker **required** — just Python 3.9+:
 
 ```sh
 # one-liner (POSIX shell)
@@ -57,6 +57,10 @@ irm https://raw.githubusercontent.com/mnemodex/mnemodex/main/install.ps1 | iex
 git clone https://github.com/mnemodex/mnemodex
 cd mnemodex && ./bin/mnemodex --help
 ```
+
+> Docker users: an optional image is included (`Dockerfile`) for CI runners and
+> shared boxes — but it is *never* required; the CLI runs bare anywhere Python
+> exists.
 
 Works from a git checkout with **zero** third-party dependencies — the entire tool is
 one pure-Python package with no `requirements.txt`.
